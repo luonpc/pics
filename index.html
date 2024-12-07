@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="一个简单易用的在线图片压缩工具，支持 PNG、JPG 格式">
+    <link rel="preload" href="upload-icon.svg" as="image">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>图片压缩工具</h1>
+            <p class="subtitle">简单、快速地压缩您的图片</p>
+        </header>
+
+        <main>
+            <!-- 图片上传区域 -->
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageInput" accept=".jpg,.jpeg,.png" hidden>
+                <div class="upload-box">
+                    <img src="upload-icon.svg" alt="上传图标" class="upload-icon">
+                    <p class="upload-text">拖放图片到这里，或点击上传</p>
+                    <p class="support-text">支持 PNG、JPG 格式</p>
+                </div>
+            </div>
+
+            <!-- 压缩设置区域 -->
+            <div class="compress-settings" id="compressSettings" style="display: none;">
+                <div class="quality-control">
+                    <div class="quality-header">
+                        <label for="quality">压缩质量</label>
+                        <span class="quality-value" id="qualityValue">80%</span>
+                    </div>
+                    <input type="range" id="quality" min="20" max="100" value="80" class="quality-slider">
+                </div>
+            </div>
+
+            <!-- 预览区域 -->
+            <div class="preview-area" id="previewArea" style="display: none;">
+                <div class="preview-box">
+                    <div class="preview-card original">
+                        <h3>原始图片</h3>
+                        <div class="image-container">
+                            <img id="originalPreview">
+                        </div>
+                        <div class="file-info">
+                            <span class="file-size" id="originalSize">0 KB</span>
+                        </div>
+                    </div>
+                    <div class="preview-card compressed">
+                        <h3>压缩后</h3>
+                        <div class="image-container">
+                            <img id="compressedPreview">
+                        </div>
+                        <div class="file-info">
+                            <span class="file-size" id="compressedSize">0 KB</span>
+                            <button id="downloadBtn" class="download-btn">
+                                <svg class="download-icon" viewBox="0 0 24 24">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                                </svg>
+                                下载
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
